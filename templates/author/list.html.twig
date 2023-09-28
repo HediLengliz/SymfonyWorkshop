@@ -1,0 +1,23 @@
+<h1>List Authors</h1>
+
+<table border="1">
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Books</td>
+    </tr>
+    {% for author in tabAuthors %}
+        <tr>
+            <td>{{  author.id}}</td>
+            <td>{{ author.username | upper }}</td>
+            <td>{{ author.email }}</td>
+            <td> {{ author.nb_books }}</td>
+            <td> <a href ="{{ path ('list_service') }}">show more +</a></td>
+
+        </tr>
+        {% set x=x+author.nb_books %}
+    {% endfor %}
+</table>
+NBR of authors:{{ tabAuthors | length }}<br>
+NBR of Books:{{  x }}
